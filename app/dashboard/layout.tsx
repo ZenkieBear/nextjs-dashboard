@@ -1,4 +1,5 @@
 import SideNav from '@/app/ui/dashboard/sidenav'
+import { Metadata } from 'next'
 import { PropsWithChildren } from 'react'
 
 export default function Layout({ children }: PropsWithChildren) {
