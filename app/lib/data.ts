@@ -21,11 +21,8 @@ export async function fetchRevenue() {
     // Don't do this in production :)
 
     console.log('Fetching revenue data...');
-    await new Promise((resolve) => setTimeout(resolve, 3000));
 
     const data = await sql<Revenue>`SELECT * FROM revenue`;
-
-    console.log('Data fetch completed after 3 seconds.');
 
     return data.rows;
   } catch (error) {
@@ -121,6 +118,7 @@ export async function fetchFilteredInvoices(
       LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
     `;
 
+    await new Promise(res => setTimeout(res, 5000)) // 故意的
     return invoices.rows;
   } catch (error) {
     console.error('Database Error:', error);
@@ -196,6 +194,7 @@ export async function fetchCustomers() {
 }
 
 export async function fetchFilteredCustomers(query: string) {
+  
   try {
     const data = await sql<CustomersTableType>`
 		SELECT
