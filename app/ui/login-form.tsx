@@ -54,6 +54,7 @@ export default function LoginForm() {
                 required
                 type='password'
                 id="password"
+                name='password'
                 placeholder='Enter password'
                 icon={<KeyIcon />}
               />
